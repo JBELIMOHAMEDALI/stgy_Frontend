@@ -7,7 +7,7 @@
   </div>
 
 
-
+  <ng-container >
     <div class="modal-body">
       <div class="view-info">
         <div class="row">
@@ -18,44 +18,50 @@
                   <div class="table-responsive">
                     <table class="table m-0">
                       <tbody>
+                        <ng-container>
                         <tr>
-                          <th scope="row">{{'Titre :'}}</th>
+                          <th scope="row">Titre :</th>
                           <td>
-                            <h5>{{ this.payload.titre }}</h5>
+                            <h5>{{ this.payload.offreID.titre }}</h5>
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">{{'Creation Date:'}}</th>                          <td>
+                          <th scope="row">Creation Date:</th>                          <td>
                             <h5>{{ this.payload.createDate|date:'dd/MM/yyyy' }}</h5>
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">{{'Status :'}}</th>                          <td>
+                          <th scope="row">Status :</th>                          <td>
                             <h5>{{ this.payload.status }}</h5>
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">{{' Description'}}</th>                          <td>
-                            <h5>{{ this.payload.description}}</h5>
+                          <th scope="row"> Description</th>                          <td>
+                            <h5>{{ this.payload.offreID.description}}</h5>
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">{{'Student full name'}}</th>                          <td>
-                            <h5>{{ this.payload.StudentID.fullName}}</h5>
+                            <th scope="row"> Student full name</th>                          <td>
+                                <h5>{{ this.payload.studentID.fullName}}</h5>
+                              </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student Email</th>                          <td>
+                            <h5>{{ this.payload.studentID.email}}</h5>
+
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">{{'Student Email'}}</th>                          <td>
-                            <h5>{{ this.payload.StudentID.email}}</h5>
+                          <th scope="row">Student CV</th>                           <td>
+                            <h5><span (click)="this.openFile(this.payload.StudentID.CV)">cv</span></h5>
                           </td>
                         </tr>
+                      </ng-container>
                         <tr>
-                          <th scope="row">{{'Student CV'}}</th>                           <td>
-                            <h5><button (click)="this.openFile(this.payload.StudentID.CV)">cvdsdsdsdsd</button></h5>
-                          </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">{{'Decision :'}}</th>  
+
+
+
+                            <th scope="row">Decision :</th>  
                                                     <td>
                             <ng-container *ngIf=" this.payload.status == 'In Progress' ">
                                 <button  type="button" (click)="updateStatus(this.payload._id,'Accepted')"  class="btn btn-outline-success">Accepted</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -78,7 +84,7 @@
       </div>
     </div>
 
-
+  </ng-container>
 
 
 

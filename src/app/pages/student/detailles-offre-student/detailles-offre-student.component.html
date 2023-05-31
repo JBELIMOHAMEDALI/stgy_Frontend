@@ -21,8 +21,11 @@
         <h5 class="card-title">End Date : <span>{{this.offre.dateFin}}</span></h5><br>
         <h5 class="card-title">Email: <span>{{this.offre.email}}</span></h5><br>
         <h5 class="card-title">Telph: <span>{{this.offre.tel }}</span></h5><br><br>
-        <button type="button" class="btn btn-outline-primary">Save</button>  &nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-outline-secondary">Postuler</button>
+
+
+
+        <button type="button"  (click)="saveOffre(this.offre._id)" class="btn btn-outline-primary">Save</button>  &nbsp;&nbsp;&nbsp;
+        <button type="button" (click)="postuleOffre(this.offre._id,this.offre.enterpriseID._id)" class="btn btn-outline-secondary">Postuler</button>
 
 <br><br>
       </div>

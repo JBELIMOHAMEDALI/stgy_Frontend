@@ -29,8 +29,8 @@ export class DecisionCompnyComponent implements OnInit {
     this.payloadEnd = {id:id_sug,status:status};
     this.endpoint = `${environment.apiUrl}/suggestion/updateSuggestion` ;
   }else{
-    // this.payloadEnd = {demandeId:this.payload.id_demonde,id:this.payload.id_user,status:status};
-    // this.endpoint = `${environment.apiUrl}/offre/updateDemondeStatus` ;
+    this.payloadEnd = {id:this.payload._id,status:status};
+    this.endpoint = `${environment.apiUrl}/demonde/updateStatusDemonde` ;
   }
     this.backendService
     .post(this.endpoint,this.payloadEnd)

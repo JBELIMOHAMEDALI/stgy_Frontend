@@ -73,7 +73,7 @@ export class StudentReqComponent implements OnInit {
     }
 
     opendes(item) {
-      const modalRef = this.modalService.open(DecisionCompnyComponent, { size: 'lg', backdrop: 'static' });
+      const modalRef = this.modalService.open(DecisionCompnyComponent);
       modalRef.componentInstance.title = "Decision Suggestion";
       modalRef.componentInstance.type = "req";
       modalRef.componentInstance.payload =item;;

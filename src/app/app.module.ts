@@ -37,6 +37,7 @@ import { AddUpdateReqComponent } from './pages/student/add-update-req/add-update
 import { InfoReqComponent } from './pages/student/info-req/info-req.component';
 import { InfoSuggestionComponent } from './pages/OffreCompany/info-suggestion/info-suggestion.component';
 import { DecisionCompnyComponent } from './pages/OffreCompany/decision-compny/decision-compny.component';
+import { InfoDemandeComponent } from './pages/OffreCompany/info-demande/info-demande.component';
 
 
 
@@ -66,6 +67,7 @@ import { DecisionCompnyComponent } from './pages/OffreCompany/decision-compny/de
     InfoReqComponent,
     InfoSuggestionComponent,
     DecisionCompnyComponent,
+    InfoDemandeComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,7 @@ import { DecisionCompnyComponent } from './pages/OffreCompany/decision-compny/de
     NgxPrintModule
   ],
 
-  entryComponents: [DecisionCompnyComponent,PopupComponent,AddUpdateOffreCompanyComponent,InfoSuggestionComponent,InfoOffreCompanyComponent,AddUpdateReqComponent,InfoReqComponent],
+  entryComponents: [InfoDemandeComponent,DecisionCompnyComponent,PopupComponent,AddUpdateOffreCompanyComponent,InfoSuggestionComponent,InfoOffreCompanyComponent,AddUpdateReqComponent,InfoReqComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]

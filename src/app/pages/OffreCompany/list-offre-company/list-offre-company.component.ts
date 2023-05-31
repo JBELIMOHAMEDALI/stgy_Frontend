@@ -11,7 +11,7 @@ import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 
-@Component({
+@Component({ 
   selector: 'app-list-offre-company',
   templateUrl: './list-offre-company.component.html',
   styleUrls: ['./list-offre-company.component.scss']

@@ -8,7 +8,9 @@ import { BackendService } from '../../../service/backend.service';
 import Observer from '../../../service/observer';
 import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
-import swal from 'sweetalert';
+import { InfoSuggestionComponent } from '../info-suggestion/info-suggestion.component';
+import { DecisionCompnyComponent } from '../decision-compny/decision-compny.component';
+import { InfoDemandeComponent } from '../info-demande/info-demande.component';
 
 @Component({
   selector: 'app-studentdemande',
@@ -51,53 +53,23 @@ export class StudentdemandeComponent implements OnInit {
       })
     );
   }
-  // open(){
+  openInfo(obj:any){
+    console.log(obj);
+    
+    const modalRef = this.modalService.open(InfoDemandeComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.title = "Info Demande";
+    modalRef.componentInstance.payload = obj;
+    modalRef.componentInstance.type = "dem";
 
-  //     const modalRef = this.modalService.open(AddUpdateOffreCompanyComponent, { size: 'lg', backdrop: 'static' });
-  //     modalRef.componentInstance.add = true;
-  //     modalRef.componentInstance.tit = "Add Offre";
-  //   }
-  //   openUpd(obj:any){
 
-  //     const modalRef = this.modalService.open(AddUpdateOffreCompanyComponent, { size: 'lg', backdrop: 'static' });
-  //     modalRef.componentInstance.add = false;
-  //     modalRef.componentInstance.obj = obj;
-  //     modalRef.componentInstance.tit = "Update Offre";
-  //   }
+  }
 
-  //   openInfo(obj:any){
-  //     const modalRef = this.modalService.open(InfoOffreCompanyComponent, { size: 'lg', backdrop: 'static' });
-  //     modalRef.componentInstance.title = "Info Offre";
-  //     modalRef.componentInstance.payload = obj;
-
-  //   }
-
-    deleteFile(id) {
-      swal({
-        title: "Are you sure?",
-        text: "You won't be able to revert this !",
-        icon: "warning",
-        closeOnEsc: true,
-        closeOnClickOutside: true,
-        buttons: ["Cancel", "Confirm"],
-      }).then((result) => {
-        if (result) {
-          const point =environment.apiUrl +"/offre/delete"
-          this.backendService
-            .delete(`${point}/${id}`)
-            .subscribe(
-              new Observer(
-                this.router,
-                null,
-                true,
-                true,
-                this.sharedService,
-                null
-              ).OBSERVER_DELETE()
-            );
-        }
-      });
-    }
+  opendes(item) {
+    const modalRef = this.modalService.open(DecisionCompnyComponent);
+    modalRef.componentInstance.title = "Decision Demande";
+    modalRef.componentInstance.type = "demond";
+    modalRef.componentInstance.payload =item;;
+  }
 
     handlePageSizeChange(event: any): void {
       this.pageSize = event.target.value;

@@ -5,13 +5,13 @@ import Observer from '../../../service/observer';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { SharedService } from './../../../service/shared.service';
-// import{} from './../../../../assets'
+
 @Component({
-  selector: 'app-info-suggestion',
-  templateUrl: './info-suggestion.component.html',
-  styleUrls: ['./info-suggestion.component.scss']
+  selector: 'app-info-demande',
+  templateUrl: './info-demande.component.html',
+  styleUrls: ['./info-demande.component.scss']
 })
-export class InfoSuggestionComponent implements OnInit {
+export class InfoDemandeComponent implements OnInit {
   @Input('title') title:string;
   @Input('type') type:string;
   @Input('payload') payload:any;
@@ -21,11 +21,13 @@ export class InfoSuggestionComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit() {
+   console.log(this.payload);
+    
   }
   updateStatus(id_sug,status){
     let payload = {id:id_sug,status:status};
     this.backendService
-    .post(`${environment.apiUrl}/suggestion/updateSuggestion`, payload)
+    .post(`${environment.apiUrl}/demonde/updateStatusDemonde`, payload)
     .subscribe(new Observer(
       this.router,// just un class dans angular
          null,//target : lin eli machilou
@@ -36,9 +38,4 @@ export class InfoSuggestionComponent implements OnInit {
       ).OBSERVER_POST());
 
   }
-
-  openFile(fileName) {
-    alert(fileName)
-    // window.open('./../../../../assets/'+fileName);
-}
 }

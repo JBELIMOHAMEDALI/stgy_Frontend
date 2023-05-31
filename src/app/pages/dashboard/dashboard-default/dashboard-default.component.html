@@ -5,12 +5,14 @@
 
 
 
+
+<ng-container *ngIf="this.userRole =='Company'">
   <!-- Statistics card start -->
   <div class="col-md-12 col-xl-4">
     <div class="card widget-statstic-card">
       <div class="card-header">
         <div class="card-header-left">
-          <h5>eee</h5>
+          <h5>Number of Offers</h5>
           <p class="p-t-10 m-b-0 text-c-blue"></p>
         </div>
       </div>
@@ -18,28 +20,34 @@
         <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>
 
         <div class="text-left">
-          <h3 class="d-inline-block">eeee</h3>
+          <h3 class="d-inline-block">{{ this.nbrOffreCompny}}</h3>
           <!-- <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i> -->
         </div>
 
       </div>
     </div>
   </div>
-  <!-- Statistics card end -->
+  <!-- Statistics card end  offer -->
   <!-- Statistics card start -->
   <div class="col-md-6 col-xl-4">
     <div class="card widget-statstic-card">
       <div class="card-header">
         <div class="card-header-left">
-          <h5>eeee</h5>
+          <h5>Number Of Requests</h5>
           <p class="p-t-10 m-b-0 text-c-pink"></p>
         </div>
       </div>
+      <!--  
+
+    
+     
+    
+  -->
       <div class="card-block">
         <i class="icofont icofont-users-social st-icon bg-c-pink txt-lite-color"></i>
 
         <div class="text-left">
-          <h3 class="d-inline-block">eeee</h3>
+          <h3 class="d-inline-block">{{  this.nbrDemondeCompny }}</h3>
           <!-- <i class="icofont icofont-long-arrow-down text-c-pink f-30 "></i> -->
         </div>
       </div>
@@ -51,7 +59,7 @@
     <div class="card widget-statstic-card">
       <div class="card-header">
         <div class="card-header-left">
-          <h5>eeee</h5>
+          <h5>Number Of Suggestion</h5>
           <p class="p-t-10 m-b-0 text-c-yellow"></p>
         </div>
       </div>
@@ -59,14 +67,73 @@
         <i class="icofont icofont-chart-line st-icon bg-c-yellow"></i>
 
         <div class="text-left">
-          <h3 class="d-inline-block">eeee</h3>
+          <h3 class="d-inline-block">{{this.nbrSuggsetionCompny}}</h3>
           <!-- <i [class]="(this.sales-this.purchases)>0?'icofont icofont-long-arrow-up text-c-green f-30':'icofont icofont-long-arrow-down text-c-green f-30' "></i> -->
         </div>
       </div>
     </div>
   </div>
   <!-- Statistics card end -->
+</ng-container>
+
+<!-- 
 
 
+      this.nbrDemondeStudent 
+    this.nbrSuggsetionStudent 
+
+
+ -->
+
+
+
+
+<ng-container *ngIf="this.userRole =='Student'">
+  <!-- Statistics card start -->
+
+  <div class="col-md-12 col-xl-6">
+    <div class="card widget-statstic-card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <h5>Number Of Requests</h5>
+          <p class="p-t-10 m-b-0 text-c-blue"></p>
+        </div>
+      </div>
+      <div class="card-block">
+        <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>
+
+        <div class="text-left">
+          <h3 class="d-inline-block">{{this.nbrDemondeStudent}}</h3>
+          <!-- <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Statistics card end -->
+  <!-- Statistics card start -->
+  <div class="col-md-6 col-xl-6">
+    <div class="card widget-statstic-card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <h5>Number Of Suggestion </h5>
+          <p class="p-t-10 m-b-0 text-c-pink"></p>
+        </div>
+      </div>
+      <div class="card-block">
+        <i class="icofont icofont-users-social st-icon bg-c-pink txt-lite-color"></i>
+
+        <div class="text-left">
+          <h3 class="d-inline-block">{{this.nbrSuggsetionStudent}}</h3>
+          <!-- <i class="icofont icofont-long-arrow-down text-c-pink f-30 "></i> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Statistics card end -->
+  <!-- Statistics card start -->
+
+  <!-- Statistics card end -->
+</ng-container>
   <!-- email Sent End -->
 </div>

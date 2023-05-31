@@ -6,8 +6,8 @@
           <div class="page-header-title">
             <span><i class="icofont icofont-bag-alt bg-c-pink"></i></span>
             <div class="d-inline">
-              <span class="d-block"><h4>Offre</h4></span>
-              <span>This page allows you to check, add, update or delete a Offre</span>
+              <span class="d-block"><h4>Requests</h4></span>
+              <span>This page allows you to check or update Request's Status</span>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
               </li>
               <li class="breadcrumb-item">
   
-                <a>Dashboard/Management Offre</a>
+                <a>Dashboard/Requests</a>
               </li>
             </ul>
           </div>
@@ -33,7 +33,7 @@
   
   <div class="row">
     <div class="col-sm-12">
-        <app-card [title]="'offre List'">
+        <app-card [title]="'Request List'">
             <label for="srch">Research</label>&nbsp;&nbsp;&nbsp;&nbsp;
             <input id="serch" type="text" [(ngModel)]="term">
             <div style="float: right;margin-right: 30px;">
@@ -48,9 +48,10 @@
               <thead>
                 <tr>
                   <th scope="col" style="text-align: center;">Ref</th>
-                  <th scope="col" style="text-align: center;">Offre Titre</th>
-                  <th scope="col" style="text-align: center;">student Full name</th>
+                  <th scope="col" style="text-align: center;">Offer Title</th>
+                  <th scope="col" style="text-align: center;">Student Full Name</th>
                   <th scope="col" style="text-align: center;">Date</th>
+                  <th scope="col" style="text-align: center;">Status</th>
                   <th scope="col" style="text-align: center;">Action</th>
                   <th></th>
                 </tr>
@@ -65,13 +66,14 @@
                   <td>{{item._id}}</td>
                   <td>{{item.offreID.titre}}</td>
                   <td>{{item.studentID.fullName}}</td>
-                  <td>{{item.createDate}}</td>
+                  <td>{{item.createDate |date:'dd/MM/yyyy'}}</td>
+                  <td>{{item.status}}</td>
                   <td> 
-                    <button type="button" class="btn btn-warning" >Update</button>
+                    <button type="button" class="btn btn-warning" (click)="opendes(item)" >Response</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button  type="button" class="btn btn-danger">Delete</button>
+                    <!-- <button  type="button" class="btn btn-danger" >Delete</button> -->
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-info" >Info</button>
+                    <button type="button" class="btn btn-info" (click)="openInfo(item)"  >Info</button>
                   </td>
                 </tr>
               </tbody>
