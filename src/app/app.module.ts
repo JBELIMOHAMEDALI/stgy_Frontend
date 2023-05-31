@@ -16,10 +16,6 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-// import { ListCampComponent } from './pages/participations/list-camp/list-camp.component';
-// import { DetaileOneCampingPartComponent } from './pages/participations/detaile-one-camping-part/detaile-one-camping-part.component';
-// import { AddParticipationPoupupComponent } from './pages/participations/add-participation-poupup/add-participation-poupup.component';
-// import { RecuPaymentComponent } from './pages/participations/recu-payment/recu-payment.component';
 import {NgxPrintModule} from 'ngx-print';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegComponent } from './pages/auth/reg/reg.component';

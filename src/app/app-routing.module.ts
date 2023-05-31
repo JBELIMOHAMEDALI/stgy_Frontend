@@ -2,10 +2,6 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { DashboardDefaultComponent } from "./pages/dashboard/dashboard-default/dashboard-default.component";
-
-
-import { SimplePageComponent } from "./pages/simple-page/simple-page.component";
-import { ProfileComponent } from "./pages/user/profile/profile.component";
 import { LoginComponent } from "./pages/auth/login/login.component";
 import { RegComponent } from "./pages/auth/reg/reg.component";
 import { ListOffreCompanyComponent } from "./pages/OffreCompany/list-offre-company/list-offre-company.component";

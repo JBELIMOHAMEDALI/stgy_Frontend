@@ -65,8 +65,6 @@ export class AddUpdateOffreCompanyComponent implements OnInit {
     }else{
       let payload = { ...form.value,enterpriseID:localStorage.getItem("id"),id:this.obj._id};
       console.log(payload);
-      
-      let endpoint = `${environment.apiUrl}/offre/add`;
       this.backendService
       .post(`${environment.apiUrl}/offre/update`, payload)
       .subscribe(new Observer(
