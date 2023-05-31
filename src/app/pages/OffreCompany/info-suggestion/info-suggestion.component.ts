@@ -38,7 +38,7 @@ export class InfoSuggestionComponent implements OnInit {
   }
 
   openFile(fileName) {
-    alert(fileName)
-    // window.open('./../../../../assets/'+fileName);
+    // alert(fileName)
+     window.open('./../../../../assets/'+fileName);
 }
 }
