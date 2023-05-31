@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="">
+
+        <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="term" class="form-control" placeholder="Research" aria-label="Dollar amount (with dot and two decimal places)">
+          </div>
+        <main>
+            <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+                
+                <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+
+                 <div *ngFor="let item of this.listoffre |filter:term" style="margin-right: 20px;text-align: center;margin-left:5% ;">
+                    <div class="col" >
+                            
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">{{item.titre}}</h5><br><br>
+                              <p class="card-text">start date : {{item.dateDebut}}</p>
+                              <p class="card-text">End Date : {{item.dateFin}}</p><br>
+                              <a  [routerLink]="['/dashboard/detaillesOffreStudent', item._id]">Detailles</a><br>
+                              <button type="button"  (click)="saveOffre(item._id)" class="btn btn-light">Save</button>
+                              <button type="button" (click)="postuleOffre(item._id,item.enterpriseID)" class="btn btn-light">Postuler</button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </main>
+      </app-card>
+    </div>
+  </div>

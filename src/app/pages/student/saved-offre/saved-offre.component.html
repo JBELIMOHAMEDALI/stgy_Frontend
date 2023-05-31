@@ -1,0 +1,105 @@
+<!-- Page-header start -->
+<div class="">
+  <div class="page-header card">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <span><i class="icofont icofont-bag-alt bg-c-pink"></i></span>
+          <div class="d-inline">
+            <span class="d-block"><h4>Offre Saved</h4></span>
+            <span>This page allows you to check the Offre Saved</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="'/dashboard'">
+                <i class="icofont icofont-home"></i>
+              </a>
+            </li>
+            <li class="breadcrumb-item">
+
+              <a>Dashboard/Offre_Saved</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page-header end -->
+
+<div class="row">
+  <div class="col-sm-12">
+      <app-card [title]="'Offre Saved'">
+          <label for="srch">Research</label>&nbsp;&nbsp;&nbsp;&nbsp;
+          <input id="serch" type="text" [(ngModel)]="term">
+          <!-- <div style="float: right;margin-right: 30px;">
+            <button type="button" class="btn btn-primary" >New</button>  </div> -->
+            <br />
+            <br />
+        
+  
+    
+          <div class="table-responsive">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col" style="text-align: center;">titre</th>
+                <th scope="col" style="text-align: center;">Start date</th>
+                <th scope="col" style="text-align: center;">End date</th>
+                <th scope="col" style="text-align: center;">Action</th>
+                <th></th>
+              </tr>
+            </thead>
+    
+            <!-- | paginate: { itemsPerPage: 3, currentPage: p }  -->
+            <tbody *ngFor="let item of this.listCampe |filter:term  
+            |slice: (page - 1) * pageSize:page * pageSize;
+                  let i = index
+              ">
+              <tr style="text-align: center;">
+                <td>{{item.titre}}</td>
+                <td>{{item.dateDebut}}</td>
+                <td>{{item.dateFin}}</td>
+                <td> 
+                    <!--  -->
+                  <button  type="button" (click)="unsaveOf(item._id)" class="btn btn-danger" >Unsave</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <button [routerLink]="['/dashboard/detaillesOffreStudent', item._id]" type="button" class="btn btn-info"  >Info</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-between p-2">
+            <ngb-pagination
+              [(page)]="page"
+              [pageSize]="pageSize"
+              [collectionSize]="listCampe.length"
+            >
+            </ngb-pagination>
+            <!-- Items Par Page  -->
+            <div>
+              Objets par page:
+              <select
+                class="custom-select"
+                style="width: auto"
+                name="pageSize"
+                (change)="handlePageSizeChange($event)"
+              >
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>
+            </div>
+          </div>
+          </div>
+          <!-- <center>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </center> -->
+    
+        </app-card>
+  </div>
+</div>

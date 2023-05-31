@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-12">
+      <app-card [title]="" >
+        <!--  -->
+        <br><br><br>
+
+        <div style="margin-left: 70px;">
+          <!-- enterpriseID
+: -->
+<h3 class="card-title"><i>{{this.offre.titre}} </i></h3><br><br>
+
+<h5 class="card-title">Company Name : <span>{{this.offre.enterpriseID.companyName}}</span></h5><br>
+<p class="card-text"></p>
+
+<h5 class="card-title">Company Domain :<span >{{this.offre.enterpriseID.companyDomain}}</span></h5><br><br>
+        <h5 class="card-title">Description :</h5><br>
+        <p class="card-text">{{this.offre.description}}</p><br>
+        <h5 class="card-title">Requirement:</h5>
+        <p class="card-text">{{this.offre.requirement }}</p>
+        <h5 class="card-title">Start Date : <span>{{this.offre.dateDebut}}</span></h5><br>
+        <h5 class="card-title">End Date : <span>{{this.offre.dateFin}}</span></h5><br>
+        <h5 class="card-title">Email: <span>{{this.offre.email}}</span></h5><br>
+        <h5 class="card-title">Telph: <span>{{this.offre.tel }}</span></h5><br><br>
+        <button type="button" class="btn btn-outline-primary">Save</button>  &nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-secondary">Postuler</button>
+
+<br><br>
+      </div>
+        </app-card>
+  </div>
+</div>

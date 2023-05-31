@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+
+    <div class="modal-body">
+      <div class="view-info">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="general-info">
+              <div class="row">
+                <div class="col-lg-12 col-xl-12">
+                  <div class="table-responsive">
+                    <table class="table m-0">
+                      <tbody>
+                        <ng-container>
+                        <tr>
+                          <th scope="row">{{'Titre :'}}</th>
+                          <td>
+                            <h5>{{ this.payload.titre }}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'Creation Date:'}}</th>                          <td>
+                            <h5>{{ this.payload.createDate|date:'dd/MM/yyyy' }}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'Status :'}}</th>                          <td>
+                            <h5>{{ this.payload.status }}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{' Description'}}</th>                          <td>
+                            <h5>{{ this.payload.description}}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'Student full name'}}</th>                          <td>
+                            <h5>{{ this.payload.StudentID.fullName}}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'Student Email'}}</th>                          <td>
+                            <h5>{{ this.payload.StudentID.email}}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{'Student CV'}}</th>                          <td>
+                            <h5>{{ this.payload.StudentID.CV}}</h5>
+                          </td>
+                        </tr>
+                      </ng-container>
+                        <tr>
+
+
+
+                            <th scope="row">{{'Decision :'}}</th>  
+                                                    <td>
+                            <ng-container *ngIf=" this.payload.status == 'In Progress' ">
+                                <button  type="button" (click)="updateStatus(this.payload._id,'Accepted')"  class="btn btn-outline-success">Accepted</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" (click)="updateStatus(this.payload._id,'Refused')" class="btn btn-outline-warning">Refused</button>
+                            </ng-container>
+                            <button *ngIf=" this.payload.status == 'Refused' " type="button" (click)="updateStatus(this.payload._id,'Accepted')" class="btn btn-outline-success">Accepted</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button *ngIf=" this.payload.status == 'Accepted' " type="button" (click)="updateStatus(this.payload._id,'Refused')" class="btn btn-outline-warning">Refused</button>
+
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+<div class="modal-footer">
+    
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">
+    Close
+  </button>
+</div>

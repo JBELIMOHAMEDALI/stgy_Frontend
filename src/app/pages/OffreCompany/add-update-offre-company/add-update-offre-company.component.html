@@ -1,0 +1,69 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{tit}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form" name="form" #f="ngForm" (ngSubmit)="this.Onsubmit(f)">
+        <div class="input-group">
+            <!--  -->
+            <input type="text" class="form-control" placeholder="Title" name="titre" ngModel [(ngModel)]="this.model.titre" #titre="ngModel" required />
+        </div>
+        <div *ngIf="titre.invalid && titre.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER Title</span>
+        </div>
+        <div class="input-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="2"
+                name="description" ngModel [(ngModel)]="this.model.description"  #description="ngModel" required></textarea>
+        </div>
+        <div *ngIf="description.invalid && description.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER Description</span>
+        </div>
+        <div class="input-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Requirement" rows="2"
+                name="requirement" ngModel [(ngModel)]="this.model.requirement" #requirement="ngModel" required></textarea>
+        </div>
+        <div *ngIf="requirement.invalid && requirement.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER Requirement</span>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Phone number
+            " name="tel" ngModel [(ngModel)]="this.model.tel"  #tel="ngModel"
+                required />
+        </div>
+        <div *ngIf="tel.invalid && tel.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER Phone number</span>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Email" name="email" ngModel [(ngModel)]="this.model.email"  #email="ngModel"
+                required />
+        </div>
+        <div *ngIf="email.invalid && email.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER Email</span>
+        </div>
+        <div class="input-group">
+            <label for="" class="col-md-3">Start date</label>
+            <input type="date" class="form-control" name="dateDebut" [(ngModel)]="this.model.dateDebut" #dateDebut="ngModel" required>        </div>
+        
+        <div *ngIf="dateDebut.invalid && dateDebut.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER Start Date</span>
+        </div>
+
+        <div class="input-group">
+            <label for="" class="col-md-3">End date</label>
+
+            <input type="date" placeholder="" class="form-control" min="{{ dateDebut.value  | date: 'yyyy-MM-dd' }}" name="dateFin" ngModel [(ngModel)]="this.model.dateFin"
+                #dateFin="ngModel" required />
+        </div>
+        <div *ngIf="dateFin.invalid && dateFin.touched" class="alert alert-danger p-2" role="alert">
+            <span>ENTER End Date</span>
+        </div>
+
+        <div class="modal-footer">
+            <button *ngIf="this.add" type="submit" class="btn btn-primary" [disabled]="f.invalid">Add</button>
+            <button *ngIf="!this.add" type="submit" class="btn btn-primary" [disabled]="f.invalid">Update</button>
+            <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        </div>
+    </form>
+</div>
