@@ -22,6 +22,7 @@ export class AdminactdesctusersComponent implements OnInit {
   pageSize = 5;
   pageSizes = [5,10,15];
   authority
+  valid
   constructor(
     private serviceCamping:CampingService,
     public sahredserv:SharedService,
@@ -105,10 +106,23 @@ export class AdminactdesctusersComponent implements OnInit {
       });
     }
 
-    changeOperation(value: string) {
+    getUsersBayvalidAndAuthorty(authority,valid){
+      this.backendService.get(`${environment.apiUrl +'/admin/getAllUsersBayAuthorityAndValide'}/${authority}/${valid}`).subscribe(
+        new Observer().OBSERVER_GET((response) => {
+           this.listCampe = response.rows;
+        })
+      );
+    }
+    changeOperation2(value: string) {
+      this.valid = value;
+      // alert(this.valid + "------"+this.authority)
+      this.getUsersBayvalidAndAuthorty(this.authority,this.valid)
+    }
+        changeOperation(value: string) {
       this.authority = value;
       this.getListUsersBayauthorty(this.authority)
     }
+
     handlePageSizeChange(event: any): void {
       this.pageSize = event.target.value;
       this.page = 1;

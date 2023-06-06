@@ -3,7 +3,6 @@
 
 
   <ng-container *ngIf="this.userRole =='admin'">
-    <!-- Statistics card start -->
     <div class="col-md-12 col-xl-4">
       <div class="card widget-statstic-card">
         <div class="card-header">
@@ -13,18 +12,16 @@
           </div>
         </div>
         <div class="card-block">
-          <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>
+          <i class="icofont icofont-network st-icon bg-c-blue"></i>
   
           <div class="text-left">
             <h3 class="d-inline-block">{{ this.adminNbroffre}}</h3>
-            <!-- <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i> -->
           </div>
   
         </div>
       </div>
     </div>
-    <!-- Statistics card end  offer -->
-    <!-- Statistics card start -->
+
     <div class="col-md-6 col-xl-4">
       <div class="card widget-statstic-card">
         <div class="card-header">
@@ -33,24 +30,17 @@
             <p class="p-t-10 m-b-0 text-c-pink"></p>
           </div>
         </div>
-        <!--  
-  
-      
-       
-      
-    -->
+<!--  -->
         <div class="card-block">
-          <i class="icofont icofont-users-social st-icon bg-c-pink txt-lite-color"></i>
+          <i class="icofont  icofont-download st-icon bg-c-pink txt-lite-color"></i>
   
           <div class="text-left">
             <h3 class="d-inline-block">{{  this.adminNbrdadmin }}</h3>
-            <!-- <i class="icofont icofont-long-arrow-down text-c-pink f-30 "></i> -->
           </div>
         </div>
       </div>
     </div>
-    <!-- Statistics card end -->
-    <!-- Statistics card start -->
+
     <div class="col-md-6 col-xl-4">
       <div class="card widget-statstic-card">
         <div class="card-header">
@@ -60,16 +50,14 @@
           </div>
         </div>
         <div class="card-block">
-          <i class="icofont icofont-chart-line st-icon bg-c-yellow"></i>
+          <i class="icofont icofont-upload-alt st-icon bg-c-yellow"></i>
   
           <div class="text-left">
             <h3 class="d-inline-block">{{this.adminNbrsugsetion}}</h3>
-            <!-- <i [class]="(this.sales-this.purchases)>0?'icofont icofont-long-arrow-up text-c-green f-30':'icofont icofont-long-arrow-down text-c-green f-30' "></i> -->
           </div>
         </div>
       </div>
     </div>
-    <!-- Statistics card end -->
 
     <div class="col-md-12 col-xl-4">
       <div class="card widget-statstic-card">
@@ -80,11 +68,10 @@
           </div>
         </div>
         <div class="card-block">
-          <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>
+          <i class="icofont icofont-users-social st-icon bg-c-blue"></i>
   
           <div class="text-left"> 
             <h3 class="d-inline-block">{{ this.adminNbractiveAcount}}</h3>
-            <!-- <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i> -->
           </div>
   
         </div>
@@ -96,20 +83,60 @@
         <div class="card-header">
           <div class="card-header-left">
             <h5>Inactive Users</h5>
-            <p class="p-t-10 m-b-0 text-c-blue"></p>
+            <p class="p-t-10 m-b-0 text-c-pink"></p>
           </div>
         </div>
         <div class="card-block">
-          <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>
+          <!-- bg-c- -->
+          <i class="icofont icofont-presentation-alt st-icon bg-c-pink"></i>
   
           <div class="text-left">
             <h3 class="d-inline-block">{{ this.adminNbrInctiveAccountemonde}}</h3>
-            <!-- <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i> -->
           </div>
   
         </div>
       </div>
     </div>
+
+    <div class="col-md-6 col-xl-4">
+      <div class="card widget-statstic-card">
+        <div class="card-header">
+          <div class="card-header-left">
+            <h5>Number Of student</h5>
+            <p class="p-t-10 m-b-0 text-c-yellow"></p>
+          </div>
+        </div>
+        <div class="card-block">
+          <i class="icofont icofont-student-alt st-icon bg-c-yellow"></i>
+  
+          <div class="text-left">
+            <h3 class="d-inline-block">{{this.adminNbrStudentAccountemonde}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-xl-4">
+      <div class="card widget-statstic-card">
+        <div class="card-header">
+          <div class="card-header-left">
+            <h5>Number Of company</h5>
+            <p class="p-t-10 m-b-0 text-c-blue"></p>
+          </div>
+        </div>
+        <div class="card-block">
+          <i class="icofont icofont-users-social st-icon bg-c-blue"></i>
+  
+          <div class="text-left"> 
+            <h3 class="d-inline-block">{{ this.adminNbrCompanyAccountemonde}}</h3>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+
+
+
   </ng-container>
   
   
@@ -185,19 +212,6 @@
   </div>
   <!-- Statistics card end -->
 </ng-container>
-
-<!-- 
-
-
-      this.nbrDemondeStudent 
-    this.nbrSuggsetionStudent 
-
-
- -->
-
-
-
-
 <ng-container *ngIf="this.userRole =='Student'">
   <!-- Statistics card start -->
 
@@ -245,5 +259,4 @@
 
   <!-- Statistics card end -->
 </ng-container>
-  <!-- email Sent End -->
 </div>

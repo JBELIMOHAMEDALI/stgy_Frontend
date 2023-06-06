@@ -31,6 +31,9 @@ export class DashboardDefaultComponent implements OnInit {
   adminNbractiveAcount
   adminNbrInctiveAccountemonde
 
+  adminNbrCompanyAccountemonde
+  adminNbrStudentAccountemonde
+
   constructor(
     private backendService: BackendService,
     private sharedService: SharedService
@@ -46,7 +49,8 @@ export class DashboardDefaultComponent implements OnInit {
     this.adminNbrsugsetion= 0 ;
     this.adminNbractiveAcount= 0 ;
     this.adminNbrInctiveAccountemonde = 0 ;
-
+    this.adminNbrCompanyAccountemonde = 0 ;
+    this.adminNbrStudentAccountemonde = 0 ;
   }
 
   ngOnInit() {
@@ -66,6 +70,9 @@ this.countAccountByValid(false);
 this.countAllDemande();
 this.countAllOffre();
 this.countAllSuggestion();
+
+this.counUsersByAuthority("Company")
+this.counUsersByAuthority("Student")
     }
 
   }
@@ -93,7 +100,7 @@ this.countAllSuggestion();
     );
   }
 // ----------------------------------
-countAllOffre() {
+  countAllOffre() {
     this.backendService.get(`${environment.apiUrl +'/admin/countAllOffre'}`).subscribe(
       new Observer().OBSERVER_GET((response) => {
     console.log(response);
@@ -112,7 +119,16 @@ countAllOffre() {
     );
   }
 
-
+  counUsersByAuthority(authority) {
+    this.backendService.get(`${environment.apiUrl +'/admin/counUsersBayAuthority'}/${authority}`).subscribe(
+      new Observer().OBSERVER_GET((response) => {
+    console.log(response);
+        // this.collectionSize=response.totalItems;
+        if(authority == "Company" ) {        this.adminNbrCompanyAccountemonde = response.rows.count;}
+        if(authority == "Student" ) {        this.adminNbrStudentAccountemonde = response.rows.count;}
+      })
+    );
+  }
 
 
 
