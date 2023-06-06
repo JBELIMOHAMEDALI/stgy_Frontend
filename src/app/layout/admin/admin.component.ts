@@ -106,6 +106,7 @@ export class AdminComponent implements OnInit {
   public config: any;
   userRole="";
   nom="";
+  mayFile: any;
   constructor(public menuItems: MenuItems, private modalService: NgbModal,public shared :SharedService, private route: Router,) {
    
    
@@ -169,8 +170,10 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.setBackgroundPattern('pattern2');
     this.userRole=localStorage.getItem("authority");
-    this.nom=localStorage.getItem("email");
-
+    if(this.userRole == 'Company'){
+    this.nom=localStorage.getItem("companyName");}
+    if(this.userRole == 'Student'){
+      this.nom=localStorage.getItem("fullName");}
   }
 
   onResize(event) {
@@ -302,6 +305,12 @@ export class AdminComponent implements OnInit {
   open() {
     const modalRef = this.modalService.open(PopupComponent);
     modalRef.componentInstance.name = 'Hanen';
+  }
+
+  changeSelectedFile02(event)
+  {
+    this.mayFile = event.target.files[0];
+    alert(this.mayFile)
   }
   // open() {
     // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

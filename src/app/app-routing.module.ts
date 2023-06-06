@@ -12,6 +12,7 @@ import { MyDemandeComponent } from "./pages/student/my-demande/my-demande.compon
 import { MyReqComponent } from "./pages/student/my-req/my-req.component";
 import { StudentReqComponent } from "./pages/OffreCompany/student-req/student-req.component";
 import { StudentdemandeComponent } from "./pages/OffreCompany/studentdemande/studentdemande.component";
+import { AdminactdesctusersComponent } from "./pages/adminactdesctusers/adminactdesctusers.component";
 
 const routes: Routes = [
   { path: "signin", component: LoginComponent },
@@ -43,7 +44,9 @@ const routes: Routes = [
         path: 'studentSuggestions', component: StudentReqComponent
       },{
         path: 'studentDemande', component: StudentdemandeComponent
-      },
+      },{
+        path: 'manageAccountUsers', component: AdminactdesctusersComponent
+      }
       
     ],
   },

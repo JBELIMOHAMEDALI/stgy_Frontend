@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.backendService.post(`${environment.apiUrl}/auth/login`, payload).subscribe(
       new Observer(this.router, "/dashboard", false).OBSERVER_SIGNIN(
         (response: any) => {
-          console.log(response);
+
           const user = response.payload
           this.sharedService.setItem("email", user.email);//authority
           this.sharedService.setItem("authority", user.authority);//

@@ -41,7 +41,8 @@
 
               <li class="user-profile header-notification">
                 <a [routerLink]="['/']">
-                  <img src="./../../../assets/user.png" class="img-radius" alt="User-Profile-Image" />
+                  <img src="./../../../assets/user.png" class="img-radius" alt="User-Profile-Image" >
+
                   <span>{{this.nom}}</span>
                   <i class="ti-angle-down"></i>
                 </a>
@@ -51,7 +52,13 @@
                     <a [routerLink]="" (click)="logout()">
                       <i class="ti-layout-sidebar-left"></i> Logout
                     </a>
+
                   </li>
+                  <!-- <li>
+                    <label for="files" class="btn">   Update Your profile picture :</label>
+                    <input class="form-control" (change)="changeSelectedFile02($event)" id="files" style="visibility:hidden" type="file" />
+
+                  </li> -->
                 </ul>
               </li>
             </ul>
@@ -135,6 +142,7 @@
             </perfect-scrollbar>
 
 
+   
             <perfect-scrollbar *ngIf="this.userRole==='Company'" [style.max-width]="'100%'"
               [style.max-height]="'calc(100vh - 230px)'" [config]="config">
               <div class="d-color">
@@ -178,6 +186,35 @@
                 </ul>
               </div>
             </perfect-scrollbar>
+
+            <perfect-scrollbar *ngIf="this.userRole==='admin'" [style.max-width]="'100%'"
+            [style.max-height]="'calc(100vh - 230px)'" [config]="config">
+            <div class="d-color">
+              <div class="pcoded-navigatio-lavel" [attr.menu-title-theme]="menuTitleTheme">
+                Navigation
+              </div>
+              <ul class="pcoded-item pcoded-left-item" [attr.item-border]="itemBorder"
+                [attr.item-border-style]="itemBorderStyle" [attr.subitem-border]="subItemBorder" appAccordionLink>
+                <!--aaaaaaaaaaaaa-->
+                <li appAccordionLink>
+                  <a [routerLink]="['/dashboard']" target="_self" appAccordionToggle>
+                    <span class="pcoded-micon"><i class="ti-home"></i></span>
+                    <span class="pcoded-mtext">Dashboard</span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+
+                <li appAccordionLink>
+                  <a [routerLink]="['/dashboard/manageAccountUsers']" target="_self" appAccordionToggle>
+                    <span class="pcoded-micon"><i class="ti-calendar"></i></span>
+                    <span class="pcoded-mtext">Users Management </span>
+                    <span class="pcoded-mcaret"></span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+          </perfect-scrollbar>
           </div>
         </nav>
         <div class="pcoded-content">

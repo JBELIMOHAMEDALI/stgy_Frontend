@@ -34,6 +34,7 @@ import { InfoReqComponent } from './pages/student/info-req/info-req.component';
 import { InfoSuggestionComponent } from './pages/OffreCompany/info-suggestion/info-suggestion.component';
 import { DecisionCompnyComponent } from './pages/OffreCompany/decision-compny/decision-compny.component';
 import { InfoDemandeComponent } from './pages/OffreCompany/info-demande/info-demande.component';
+import { AdminactdesctusersComponent } from './pages/adminactdesctusers/adminactdesctusers.component';
 
 
 
@@ -64,6 +65,7 @@ import { InfoDemandeComponent } from './pages/OffreCompany/info-demande/info-dem
     InfoSuggestionComponent,
     DecisionCompnyComponent,
     InfoDemandeComponent,
+    AdminactdesctusersComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,13 @@ export class DashboardDefaultComponent implements OnInit {
   nbrOffreCompny: any;
   userRole 
 
+
+  adminNbroffre
+  adminNbrdadmin
+  adminNbrsugsetion
+  adminNbractiveAcount
+  adminNbrInctiveAccountemonde
+
   constructor(
     private backendService: BackendService,
     private sharedService: SharedService
@@ -33,6 +40,13 @@ export class DashboardDefaultComponent implements OnInit {
     this.nbrSuggsetionStudent = 0;
     this.nbrSuggsetionCompny = 0;
     this.nbrOffreCompny = 0;
+
+    this.adminNbroffre = 0 ;
+    this.adminNbrdadmin = 0;
+    this.adminNbrsugsetion= 0 ;
+    this.adminNbractiveAcount= 0 ;
+    this.adminNbrInctiveAccountemonde = 0 ;
+
   }
 
   ngOnInit() {
@@ -43,12 +57,76 @@ this.countDemandeCompny();
 this.countSuggestionCompny();
 this.countOffreCompny();
     }
-    else{
+    else if(this.userRole == 'Student'){
 this.countDemandeStudent();
 this.countSuggestionStudent();
+    }else{
+this.countAccountByValid(true);
+this.countAccountByValid(false);
+this.countAllDemande();
+this.countAllOffre();
+this.countAllSuggestion();
     }
 
   }
+
+
+  // -------------------------------------------------------------------------
+  countAccountByValid(valide) {
+    this.backendService.get(`${environment.apiUrl +'/admin/countAccountByValid'}/${valide}`).subscribe(
+      new Observer().OBSERVER_GET((response) => {
+    console.log(response);
+        // this.collectionSize=response.totalItems;
+        if(valide == true ) {        this.adminNbractiveAcount = response.rows.count;}
+        if(valide == false ) {        this.adminNbrInctiveAccountemonde = response.rows.count;}
+
+      })
+    );
+  }
+  countAllDemande() {
+    this.backendService.get(`${environment.apiUrl +'/admin/countAllDemande'}`).subscribe(
+      new Observer().OBSERVER_GET((response) => {
+    console.log(response);
+        // this.collectionSize=response.totalItems;
+        this.adminNbrdadmin = response.rows.count;
+      })
+    );
+  }
+// ----------------------------------
+countAllOffre() {
+    this.backendService.get(`${environment.apiUrl +'/admin/countAllOffre'}`).subscribe(
+      new Observer().OBSERVER_GET((response) => {
+    console.log(response);
+        // this.collectionSize=response.totalItems;
+        this.adminNbroffre = response.rows.count;
+      })
+    );
+  }
+  countAllSuggestion() {
+    this.backendService.get(`${environment.apiUrl +'/admin/countAllSuggestion'}`).subscribe(
+      new Observer().OBSERVER_GET((response) => {
+    console.log(response);
+        // this.collectionSize=response.totalItems;
+        this.adminNbrsugsetion = response.rows.count;
+      })
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // --------------------------------------------------------------------------
   countDemandeStudent() {
     this.backendService.get(`${environment.apiUrl +'/dashbooard/countDemandeStudent'}/`+localStorage.getItem("id")).subscribe(
       new Observer().OBSERVER_GET((response) => {
