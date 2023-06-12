@@ -38,4 +38,9 @@ export class InfoDemandeComponent implements OnInit {
       ).OBSERVER_POST());
 
   }
+
+  openFile(fileName) {
+    // alert(JSON.stringify())
+    window.open(fileName.cv);
+}
 }

@@ -52,8 +52,10 @@
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">Student CV</th>                           <td>
-                            <h5><span (click)="this.openFile(this.payload.StudentID.CV)">cv</span></h5>
+                          <th scope="row">{{'Student CV'}}</th>                           <td>
+                            <h5>
+                              <button type="button" (click)="openFile(this.payload.studentID)" class="btn btn-outline-secondary">View CV</button>
+                            </h5>
                           </td>
                         </tr>
                       </ng-container>
